@@ -1,0 +1,44 @@
+                                //Quick Sort
+//choose pivot to last element ,placed it correct position left side of pivot should be less than pivot and right greater than pivot
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void printArr(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int partition(int arr[], int si, int ei) {
+    int i = si - 1;
+    int piv = arr[ei];
+    for (int j = si; j < ei; j++) {
+        if (arr[j] <= piv) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[ei]); // Place the pivot at the correct position
+    return i + 1;
+}
+
+void quickSrt(int arr[], int si, int ei) {
+    if (si >= ei) {
+        return;
+    }
+    int pividx = partition(arr, si, ei);
+    quickSrt(arr, si, pividx - 1); // Left part
+    quickSrt(arr, pividx + 1, ei); // Right part
+}
+
+int main() {
+    int arr[5] = {2, 5, 4, 7, 3};
+    int n = 5;
+
+    quickSrt(arr, 0, n - 1);
+    printArr(arr, n);
+    return 0;
+}
