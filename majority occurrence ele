@@ -1,0 +1,33 @@
+
+
+//majority element
+
+#include <iostream>
+#include <vector>
+
+int majorityElement(std::vector<int>& nums) {
+    int candidate = 0, count = 0;
+
+    // Step 1: Find the majority candidate
+    for (int num : nums) {
+        if (count == 0) {
+            candidate = num;
+        }
+        count += (num == candidate) ? 1 : -1;
+    }
+
+    // Step 2: Return the candidate (majority element assumption holds)
+    return candidate;
+}
+
+int main() {
+    // Test case 1
+    std::vector<int> nums1 = {3, 2, 3};
+    std::cout << "Majority Element: " << majorityElement(nums1) << std::endl;
+
+    // Test case 2
+    std::vector<int> nums2 = {2, 2, 1, 1, 1, 2, 2};
+    std::cout << "Majority Element: " << majorityElement(nums2) << std::endl;
+
+    return 0;
+}
