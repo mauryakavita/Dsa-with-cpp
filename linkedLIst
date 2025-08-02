@@ -1,4 +1,4 @@
-LINKED LIST-------
+#LINKED LIST-------
 
 
 
@@ -11,7 +11,7 @@ class Node{
     Node* next;
 
 
-    Node(int val){     // constructor
+    Node(int val){          //constructor
         data = val;
         next = NULL;
     }
