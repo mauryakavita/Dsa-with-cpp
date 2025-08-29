@@ -1,53 +1,74 @@
-#Graph----------DFS
-
-
-
+#Graph----------DFS-------------------
 
 #include <iostream>
+
 #include<vector>
+
 #include<stack>
+
 using namespace std;
 
- void dfs(int start, const vector<vector<int>>& graph ,vector<bool>& visited){
-    stack<int>s;
+void dfs(int start,
+    const vector < vector < int >> & graph, vector < bool > & visited) {
+    stack < int > s;
     s.push(start);
-    
-    while(!s.empty())
-    {int current = s.top();
-    s.pop();
-    
-    
-    if(!visited[current]){
-        
-        cout << current  << " ";
-        visited[current] = true;
-        
-        
-    }
-    
-    for(int neighbor : graph[current]){
-        if(!visited[neighbor]){
-            s.push(neighbor);
+
+    while (!s.empty())
+    {
+        int current = s.top();
+        s.pop();
+
+
+        if (!visited[current]) {
+
+            cout << current << " ";
+            visited[current] = true;
+
+
+        }
+
+        for (int neighbor: graph[current]) {
+            if (!visited[neighbor]) {
+                s.push(neighbor);
+            }
         }
     }
 }
-}
 
 int main() {
-    
-    vector<vector<int>> graph = {
-        {1,2},
-        {0,3,4},
-        {0,5},
-        {1},
-        {1},
-        {2}
+
+    vector < vector < int >> graph = {
+        {
+            1,
+            2
+        },
+        {
+            0,
+            3,
+            4
+        },
+        {
+            0,
+            5
+        },
+        {
+            1
+        },
+        {
+            1
+        },
+        {
+            2
+        }
     };
-    
-    int startNode =0;
-    vector<bool> visited(graph.size(),false);
-    cout<< "DFS start from node" << startNode << ": ";
-    
-    dfs(startNode,graph,visited);
+
+    int startNode = 0;
+    vector < bool > visited(graph.size(), false);
+    cout << "DFS start from node" << startNode << ": ";
+
+    dfs(startNode, graph, visited);
     return 0;
 }
+
+
+
