@@ -63,7 +63,8 @@ int main() {
     };
 
     int startNode = 0;
-    vector < bool > visited(graph.size(), false);
+    vector < bool > visited(graph.size(), false);          // sab nodes ko initially unvisited mark karta hai
+
     cout << "DFS start from node" << startNode << ": ";
 
     dfs(startNode, graph, visited);
